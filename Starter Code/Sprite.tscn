@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://77118rh21mgk"]
+
+[ext_resource type="Texture2D" uid="uid://cybm18nulqadf" path="res://sprites/Tyre.png" id="1_cu672"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_014pt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Tyre" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_014pt")
+position = Vector2(495, 271)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_cu672")

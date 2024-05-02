@@ -1,3 +1,73 @@
-[gd_scene format=3 uid="uid://bunyohpobvu8b"]
+[gd_scene load_steps=6 format=3 uid="uid://u85nkx4y32ey"]
 
-[node name="root" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b7agrkbanu440" path="res://sprites/Blue background.png" id="1_3eqwa"]
+[ext_resource type="Texture2D" uid="uid://cybm18nulqadf" path="res://sprites/Tyre.png" id="1_35rq7"]
+[ext_resource type="FontFile" uid="uid://c7m2s77s7pxfy" path="res://fonts/Minecraft.ttf" id="3_y1tdq"]
+[ext_resource type="Script" path="res://SpriteSpawn.gd" id="4_en2te"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ry5dr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BlueBackground" type="Sprite2D" parent="."]
+position = Vector2(512.5, 513)
+scale = Vector2(1.65335, 2.48441)
+texture = ExtResource("1_3eqwa")
+
+[node name="Tyre" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ry5dr")
+position = Vector2(500, 500)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_35rq7")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 85.0
+offset_top = 117.0
+offset_right = 305.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("3_y1tdq")
+theme_override_font_sizes/font_size = 24
+text = "Make it rain!"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slider" type="HSlider" parent="Control"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 44.0
+offset_right = 367.0
+offset_bottom = 90.0
+min_value = 1.0
+max_value = 20.0
+value = 1.0
+
+[node name="Count" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 53.0
+offset_right = 160.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("3_y1tdq")
+theme_override_font_sizes/font_size = 30
+text = "Count:"
+
+[node name="Number" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 54.0
+offset_right = 506.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("3_y1tdq")
+theme_override_font_sizes/font_size = 30
+text = "1
+"
+
+[node name="SpriteSpawn" type="RigidBody2D" parent="."]
+position = Vector2(513, 268)
+script = ExtResource("4_en2te")
+
+[connection signal="pressed" from="Button" to="SpriteSpawn" method="_on_button_pressed"]
